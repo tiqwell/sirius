@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+
+void printVector(const  std::vector<int> &vec)
+{
+	for (int i = 0; i < vec.size() - 1; i++)
+		std::cout << vec[i];
+	
+}
+
+void push(int a, std::vector <int>  &vec)
+{	
+	vec.push_back(a);
+}
+
+void pop(std::vector <int>& vec)
+{
+	if (vec.size() > 0)
+	{
+		std::cout << vec[vec.size() - 1];
+		vec.pop_back();
+	}
+	else
+		std::cout << "error";
+}
+void back(std::vector <int>& vec)
+{
+	std::cout << vec[vec.size() - 1];
+}
+void size(std::vector <int>& vec)
+{
+	std::cout << vec.size() << std::endl;
+}
+int main()
+{
+	std::string str;
+	int a;
+	std::vector <int> vec;
+	std::cin >> str;
+
+	while (str != "end")
+	{	
+		if (str == "push")
+		{
+			std::cin >> a;
+			push(a, vec);
+		}
+		if (str == "pop")
+			pop(vec);
+		if (str == "back")
+			back(vec);
+		if (str == "size")
+			size(vec);
+		std::cin >> str;
+	}
+}
